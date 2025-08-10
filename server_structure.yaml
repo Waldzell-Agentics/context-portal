@@ -1,0 +1,38 @@
+name: Context Portal MCP
+version: '0.2.5'
+entrypoint: src/context_portal_mcp/main.py
+modes:
+  - http
+  - stdio
+database:
+  engine: sqlite
+  per_workspace: true
+components:
+  core:
+    path: src/context_portal_mcp/core
+    description: Exceptions and configuration utilities
+  handlers:
+    path: src/context_portal_mcp/handlers
+    description: Business logic for MCP tools
+  db:
+    path: src/context_portal_mcp/db
+    description: SQLite access, models, and vector store
+mcp_tools:
+  - get_product_context
+  - update_product_context
+  - get_active_context
+  - update_active_context
+  - log_decision
+  - get_decisions
+  - search_decisions_fts
+  - log_progress
+  - get_progress
+  - update_progress
+  - log_system_pattern
+  - get_system_patterns
+  - log_custom_data
+  - get_custom_data
+  - link_conport_items
+  - get_linked_items
+  - get_item_history
+  - get_recent_activity_summary
